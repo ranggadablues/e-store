@@ -1,4 +1,3 @@
-import EventsBanner from "@/components/events/EventsBanner"
 import { EventsTimeline } from "@/components/events/EventsTimeline"
 
 const EventsPage = () => {

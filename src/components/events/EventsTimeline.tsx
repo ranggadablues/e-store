@@ -1,4 +1,4 @@
-import { Calendar, MapPin, Clock, Ticket, Music, Users } from 'lucide-react';
+import { Calendar, MapPin, Clock, Ticket } from 'lucide-react';
 import Image from 'next/image';
 import EventsBanner from './EventsBanner';
 
@@ -150,7 +150,7 @@ export function EventsTimeline() {
 
                         {/* Events */}
                         <div className="space-y-12">
-                            {events.map((event, index) => (
+                            {events.map((event) => (
                                 <div
                                     key={event.id}
                                     className="relative"

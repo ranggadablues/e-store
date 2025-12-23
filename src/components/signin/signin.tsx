@@ -142,7 +142,7 @@ export function SignIn() {
                         {/* Sign Up Link */}
                         <div className="text-center pt-6 border-t border-zinc-800">
                             <p className="text-gray-400 mb-2">
-                                Don't have an account?
+                                Don&apos;t have an account?
                             </p>
                             <a href="#" className="text-red-600 hover:text-red-500 uppercase tracking-wider transition-colors">
                                 Create Account
@@ -176,7 +176,7 @@ export function SignIn() {
                     </h2>
                     <div className="w-20 h-1 bg-red-600 mb-6" />
                     <p className="text-gray-300 text-lg leading-relaxed max-w-md mb-8">
-                        Access exclusive 90's band merchandise, early ticket sales, and special events reserved for members only.
+                        Access exclusive 90&apos;s band merchandise, early ticket sales, and special events reserved for members only.
                     </p>
 
                     {/* Features */}
