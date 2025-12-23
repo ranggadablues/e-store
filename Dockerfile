@@ -4,7 +4,7 @@
 FROM node:20-alpine AS deps
 WORKDIR /app
 COPY package.json package-lock.json* ./
-RUN npm install
+RUN npm install ci --ignore-scripts
 
 # ===============================
 # 2. Build the Next.js project
@@ -23,6 +23,9 @@ WORKDIR /app
 
 ENV NODE_ENV=production
 
+# Create non-root user
+RUN addgroup -S app && adduser -S app -G app
+
 # Copy required files
 COPY --from=builder /app/package.json ./
 COPY --from=builder /app/next.config.ts ./
@@ -31,11 +34,17 @@ COPY --from=builder /app/.next ./.next
 COPY --from=builder /app/node_modules ./node_modules
 
 # Copy env if exists (optional)
-COPY .env* ./
+# COPY .env* ./
+
+# App-owned writable dirs
+RUN mkdir -p /app/data /app/public/products \
+ && chown -R app:app /app
 
 # Create runtime volume directory
-RUN mkdir -p /app/data \
-    && mkdir -p /app/public/products
+# RUN mkdir -p /app/data \
+#     && mkdir -p /app/public/products
+
+USER app
 
 EXPOSE 3000
 
